@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 508870917}
   - component: {fileID: 508870916}
   - component: {fileID: 508870915}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 520665607}
   - component: {fileID: 520665606}
   - component: {fileID: 520665605}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 880394601}
   - component: {fileID: 880394600}
   - component: {fileID: 880394599}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 1153786650}
   - component: {fileID: 1153786649}
   - component: {fileID: 1153786648}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 1154915081}
   - component: {fileID: 1154915080}
   - component: {fileID: 1154915079}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 1538005990}
   - component: {fileID: 1538005993}
   - component: {fileID: 1538005994}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ProtectedArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ Transform:
   m_GameObject: {fileID: 1802866804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.83, y: 0.2, z: -16.2}
+  m_LocalPosition: {x: 15.89, y: 0.2, z: -16.35}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 2095662794}
   - component: {fileID: 2095662793}
   - component: {fileID: 2095662792}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1478,7 +1478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2108778766}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,7 +1511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114707968}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1546,6 +1546,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2834433789891396412, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8137951006841353051, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.995921

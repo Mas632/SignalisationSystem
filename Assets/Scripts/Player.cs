@@ -4,8 +4,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent),typeof(Animator))]
 internal class Player : MonoBehaviour
 {
-    [SerializeField] private PlayerTarget _target;
-
     private NavMeshAgent _agent;
     private Animator _animator;
     private Camera _camera;
@@ -26,12 +24,10 @@ internal class Player : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit placeInfo))
             {
                 _agent.SetDestination(placeInfo.point);
-                _target.transform.position = placeInfo.point;
             }
 
         }
 
         _animator.SetBool("isWalking", _agent.remainingDistance > _agent.stoppingDistance);
-        _target.gameObject.SetActive(_agent.remainingDistance > _agent.stoppingDistance);
     }
 }
