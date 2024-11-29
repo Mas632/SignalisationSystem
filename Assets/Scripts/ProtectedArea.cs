@@ -1,43 +1,49 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 internal class ProtectedArea : MonoBehaviour
 {
-    private const float TargetVolumeOfAlarmSignalIfPlayerInside = 1f;
-    private const float TargetVolumeOfAlarmSignalIfPlayerOutside = 0f;
+    private const float MinimumVolume = 0f;
+    private const float MaximumVolume = 1f;
 
     private AudioSource _alarmSound;
-    private float _targetVolumeOfAlarmSignal = TargetVolumeOfAlarmSignalIfPlayerOutside;
     private float _volumeChangeSpeed = 0.33f;
+
+    private Coroutine _changeVolumeProcess;
+
+    private IEnumerator ChangeVolume(float targetVolume)
+    {
+        float intervalBetweenVolumeChanges = 0.05f;
+        var delay = new WaitForSeconds(intervalBetweenVolumeChanges);
+
+        while (_alarmSound.volume != targetVolume)
+        {
+            _alarmSound.volume = Mathf.MoveTowards(_alarmSound.volume, targetVolume, _volumeChangeSpeed * Time.deltaTime);
+
+            yield return delay;
+        }
+    }
 
     private void Start()
     {
         _alarmSound = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider _)
     {
-        Debug.Log("IN");
-
-        if (other.TryGetComponent<Player>(out _))
-        {
-            _targetVolumeOfAlarmSignal = TargetVolumeOfAlarmSignalIfPlayerInside;
-        }
+        StartChangingVolume(MaximumVolume);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider _)
     {
-        Debug.Log("OUT");
-
-        if (other.TryGetComponent<Player>(out _))
-        {
-            _targetVolumeOfAlarmSignal = TargetVolumeOfAlarmSignalIfPlayerOutside;
-        }
+        StartChangingVolume(MinimumVolume);
     }
 
-    private void Update()
+    private void StartChangingVolume(float targetVolume)
     {
-        _alarmSound.volume = Mathf.MoveTowards(_alarmSound.volume, _targetVolumeOfAlarmSignal, _volumeChangeSpeed * Time.deltaTime);
+        StopAllCoroutines();
+        StartCoroutine(ChangeVolume(targetVolume));
     }
 }
